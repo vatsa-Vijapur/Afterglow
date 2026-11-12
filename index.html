@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Afterglow — our lifetime memories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <video id="bgv" muted playsinline></video>
+    <div id="bgo"></div>
+    <div id="grid"><i></i></div>
+    
+    <nav>
+        <div class="logo">After<b>glow</b> ✦</div>
+        <div style="display: flex; gap: 10px;">
+            <button class="cta admin-only hide" id="upload-btn">Upload</button>
+            <button class="cta" id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div id="pages">
+        <main id="home" class="pg">
+            <div class="hero">
+                <p>our lifetime memories</p>
+                <h1>Every face,<br><em>one forever.</em></h1>
+            </div>
+            <div class="cue" id="cue">SCROLL FOR MORE<br>↓</div>
+        </main>
+
+        <!-- PAGE 5: Words & Wishes (Bangers) -->
+        <section id="p5" class="pg">
+            <div class="pgh">
+                <p>words & wishes</p>
+                <h2>Things we said, things we’ll say</h2>
+            </div>
+            <div class="wgrid">
+                <div class="hc qw">
+                    <span class="sub">Bangers Wall</span>
+                    <div class="qs" id="bangers-container">
+                        <!-- Bangers dynamically injected here -->
+                    </div>
+                    <div class="qn">
+                        <button class="ab" id="qp">‹</button>
+                        <span id="qk"></span>
+                        <button class="ab" id="qx">›</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modals -->
+    <div id="dv" class="modal hide">
+        <div class="dt-container">
+            <div class="md" id="media-container"></div>
+            <div class="in">
+                <h3 id="memory-title"></h3>
+                <div class="info" id="memory-info"></div>
+                
+                <div class="lab">Comments:</div>
+                <div id="comments-list" class="comments-container"></div>
+                <div class="gbf">
+                    <input id="comment-text" placeholder="Add a comment..." maxlength="240">
+                    <button class="ab sh" id="submit-comment">Post</button>
+                </div>
+                
+                <div class="acts">
+                    <button class="ab" id="download-media">⬇ Download</button>
+                    <button class="ab admin-only hide" id="delete-memory" style="color: #ff8a7a;">🗑 Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Screen -->
+    <div id="upload-screen" class="modal hide">
+        <div class="box st">
+            <button class="x" id="close-upload">×</button>
+            <h3>Upload a Memory</h3>
+            <label>Files (Photo/Video)</label>
+            <input type="file" id="upload-file" accept="image/*,video/*" multiple>
+            <label>Date & Time</label>
+            <input type="datetime-local" id="upload-datetime">
+            <label>Location</label>
+            <input type="text" id="upload-location" placeholder="e.g. Vagator, Goa">
+            <button class="cta" id="confirm-upload" style="margin-top: 20px; width: 100%;">Upload</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./js/supabase.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/data.js"></script>
+    <script type="module" src="./js/admin.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/upload.js"></script>
+</body>
+</html>
